@@ -1,0 +1,53 @@
+Rows: 200 
+Pass/Fail:
+
+Fail Pass 
+  90  110 
+Train: 160 Test: 40 
+
+Call:
+lm(formula = average ~ attendance + study_hours, data = train)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11.8841  -2.7358  -0.1138   2.7553   9.7101 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 17.65877    2.75180   6.417 1.56e-09 ***
+attendance   0.28572    0.03187   8.964 8.77e-16 ***
+study_hours  5.31408    0.20535  25.878  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.938 on 157 degrees of freedom
+Multiple R-squared:  0.8273,	Adjusted R-squared:  0.8251 
+F-statistic: 376.2 on 2 and 157 DF,  p-value: < 2.2e-16
+
+
+Test RMSE: 3.99 | MAE: 3.08 | R-squared: 0.806
+
+Decision tree accuracy: 0.875
+Random forest accuracy: 0.850
+Random forest confusion matrix (rows = actual):
+      Predicted
+Actual Fail Pass
+  Fail   15    2
+  Pass    4   19
+
+Variable importance:
+            MeanDecreaseGini
+attendance             17.54
+study_hours            38.27
+section                 2.52
+
+Cluster profiles (original units):
+# A tibble: 3 x 5
+  cluster     n attendance study_hours average
+  <fct>   <int>      <dbl>       <dbl>   <dbl>
+1 1          51       70.2         3.5    56.5
+2 2          86       85.8         4.9    68.5
+3 3          63       87.2         2.2    53.9
+Mean silhouette: 0.338 
+
+Saved 2 charts.

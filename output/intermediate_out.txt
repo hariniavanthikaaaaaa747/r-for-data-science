@@ -1,0 +1,42 @@
+Raw rows: 205 | duplicates: 5 
+Missing per column:
+ student_id        name      gender     section  attendance study_hours 
+          0           0           5           0           6           0 
+       math     science     english 
+          8           0           0 
+
+Clean rows: 200 | remaining NAs: 0 
+
+Average by section:
+# A tibble: 3 x 4
+  section     n   avg   att
+  <chr>   <int> <dbl> <dbl>
+1 A          62  60.8  83.4
+2 B          81  60.2  82  
+3 C          57  61.8  81.4
+
+Average by attendance band:
+# A tibble: 3 x 3
+  attendance_band     n   avg
+  <fct>           <int> <dbl>
+1 Low (<=75)         46  57.8
+2 Medium (76-90)    114  60.5
+3 High (>90)         40  65.4
+
+Top 5 students:
+  student_id section attendance average
+1       S107       A       70.8    85.0
+2       S182       A       88.0    83.3
+3       S099       A       92.8    82.7
+4       S140       A       87.3    81.7
+5       S129       A       75.3    81.3
+
+Corr(attendance, average): 0.285 
+Corr(study_hours, average): 0.861 
+t-test (gender) p-value: 0.435 
+             Df Sum Sq Mean Sq F value Pr(>F)
+section       2     81   40.63   0.462  0.631
+Residuals   197  17342   88.03               
+`geom_smooth()` using formula = 'y ~ x'
+
+Saved 3 charts + cleaned CSV.

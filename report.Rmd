@@ -1,0 +1,13 @@
+---
+title: "Student Performance Report"
+output: html_document
+---
+```{r setup, include=FALSE}
+library(dplyr); library(ggplot2)
+d <- read.csv("data/students_cleaned.csv")
+```
+## Summary
+We analysed `r nrow(d)` students. The mean average mark is `r round(mean(d$average),1)`.
+```{r plot, echo=FALSE, message=FALSE}
+ggplot(d, aes(study_hours, average)) + geom_point() + geom_smooth(method="lm")
+```
